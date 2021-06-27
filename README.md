@@ -58,12 +58,12 @@ Open the Command line or Terminal
 - Clone the repository
 
 ```
-git clone https://github.com/OmdenaAI/omdena-singapore-covid-health.git
+git clone https://github.com/OmdenaAI/omdena-india-covid-economy.git
 ```
 - Move to the folder
 
 ```
-cd omdena-singapore-covid-health
+cd omdena-india-covid-economy
 ```
 - To open with VSCode
 ```
