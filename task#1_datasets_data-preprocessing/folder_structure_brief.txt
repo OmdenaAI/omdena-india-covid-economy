@@ -1,0 +1,8 @@
+data-preprocessing = to add scripts or jupyter notebooks with the scripts to process data
+
+	scripts = to add .py files with the pre-processing scripts
+	jupyter_nbs = to add .ipynb files with the pre-processing scripts
+
+datasets = to add csv/excel/json data files (tweets + images)
+
+PS: please mention tweets or images in the file names.	
