@@ -14,3 +14,10 @@ Note : Please Follow the below guidelines to create task folders
 |1|         |         |
 |2|         |         |
 |3|         |         |
+
+
+Note: Everything should be in the src folder. All the subfolders.
+      Created 7 tasks folder upload all the content related to
+      a particular task in that subfolder. It will be easy for 
+      us to understand and collaborate further without making 
+      any mess and will be organized.
