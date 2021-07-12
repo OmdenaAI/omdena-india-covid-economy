@@ -11,7 +11,7 @@ Note : Please Follow the below guidelines to create task folders
 
 | Task No| Task Name | Details |
 |-|-|-|
-|1|         |         |
+|1|Datasets and Data pre-processing|Gathering data and generating datasets & pre-processing data for next steps
 |2|         |         |
 |3|         |         |
 
