@@ -7,29 +7,31 @@ Original file is located at
     https://colab.research.google.com/drive/1qxhOEdd9Y_250u6ZeY6ZWXN4luQhm5kU
 """
 
-### THIS MAY NOT BE NEEDED FOR DEPLOY SINCE FILES ARE ON GITHUB
-from google.colab import drive
-drive.mount('/content/drive', force_remount=True)
-
-!pip install emoji
-
-import numpy as np
-import torch
+import os
 import pickle
 import re
-from emoji import demojize
+import shutil
 import string
+import time
 from string import punctuation
+
 import nltk
+import numpy as np
+import streamlit as st
+import torch
+from emoji import demojize
+from lxml import html
+
 nltk.download('stopwords')
 from nltk.corpus import stopwords
+
+from apps.Sentiment_Analysis.download import load
 
 stop = set(stopwords.words('english'))
 
 """### Loading Trained weights and vocabulary"""
-
-### CHANGE TO GITHUB REPO WHERE STREAMLIT FILES ARE 
-datapath = '/content/drive/MyDrive/Omdena-India-Socio-Economy/'
+load()
+datapath = 'apps/Sentiment_Analysis/models/'
 fmodel = datapath + 'LSTM_RNN_Sentiment_model.pt'
 fvocab = datapath + 'LSTM_RNN_Sentiment_vocab.pkl'
 
@@ -49,6 +51,7 @@ vocab_to_int
 
 ### SENTIMENT MODEL 
 import torch.nn as nn
+
 
 class SentimentRNN(nn.Module):
     """
@@ -244,14 +247,27 @@ def predict(net, test_text, sequence_length=200):
 
 """## Example Input and Output"""
 
-input_text = "people happy"
-seq_length=51 # good to use the length that was trained on
-response, pred_value = predict(net, input_text, seq_length)
-print(response)
-print('Prediction value, pre-rounding: {:.6f}'.format(pred_value))
+# input_text = "people happy"
+# seq_length=51 # good to use the length that was trained on
+# response, pred_value = predict(net, input_text, seq_length)
+# print(response)
+# print('Prediction value, pre-rounding: {:.6f}'.format(pred_value))
 
-input_text = "covid was devastating"
-seq_length=51 # good to use the length that was trained on
-response, pred_value = predict(net, input_text, seq_length)
-print(response)
-print('Prediction value, pre-rounding: {:.6f}'.format(pred_value))
+# input_text = "covid was devastating"
+# seq_length=51 # good to use the length that was trained on
+# response, pred_value = predict(net, input_text, seq_length)
+# print(response)
+# print('Prediction value, pre-rounding: {:.6f}'.format(pred_value))
+
+def detect1():
+    st.title('Sentiment Analysis')
+    st.write("")
+
+    sentence = st.text_input('Input your sentence here:', value="Hi good people!") 
+    if sentence is not None:
+        st.spinner(text='In progress...')
+        pred, score = predict(net, sentence, 51)
+        if pred.startswith("N"):
+            st.write(pred, "With score: {}".format(round((1 - score), 2)*100))
+        else:
+            st.write(pred, "With score: {}".format(round(score, 2)*100))

@@ -1,0 +1,9 @@
+emoji
+gdown
+string
+nltk
+numpy
+streamlit
+torch
+emoji
+lxml
