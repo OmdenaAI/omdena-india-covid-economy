@@ -6,7 +6,7 @@ from PIL import Image
 import torch
 import streamlit as st
 
-from apps.CT_Image_Detector.CT_detector import Detector
+from apps.Classification_modelling.CT_Image_Detector.CT_detector import Detector
 
 
 def predict(image_path):
@@ -29,9 +29,9 @@ def detect():
 
     file_up = st.file_uploader("Upload an image", type = "jpg")
     if file_up is not None:
-        with open("apps/CT_Image_Detector/images/image.jpg", "wb") as f:
+        with open("apps/Classification_modelling/CT_Image_Detector/images/image.jpg", "wb") as f:
             f.write(file_up.getbuffer())
-        image = Image.open("apps/CT_Image_Detector/images/image.jpg")
+        image = Image.open("apps/Classification_modelling/CT_Image_Detector/images/image.jpg")
 
         c1, c2 = st.beta_columns([1,1])
 
@@ -39,7 +39,7 @@ def detect():
             st.image(image, caption = 'Uploaded Image.', use_column_width = True)
         st.write("")
         st.write("Just a second ... Predicting 🚀")
-        image, score, label = predict("apps/CT_Image_Detector/images/image.jpg")
+        image, score, label = predict("apps/Classification_modelling/CT_Image_Detector/images/image.jpg")
 
         image = Image.open(image)
         with c2:
@@ -49,5 +49,5 @@ def detect():
         else:
             st.write("The CT scan shows that, you're not been affected by Covid19 with confidence {}%".format(score))
 
-        os.remove("apps/CT_Image_Detector/images/image.jpg")
-        shutil.rmtree("apps/CT_Image_Detector/runs/")
+        os.remove("apps/Classification_modelling/CT_Image_Detector/images/image.jpg")
+        shutil.rmtree("apps/Classification_modelling/CT_Image_Detector/runs/")
