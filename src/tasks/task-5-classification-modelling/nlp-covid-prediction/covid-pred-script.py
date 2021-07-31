@@ -1,3 +1,6 @@
+import numpy as np
+import xgboost as xgb
+
 def predictCovid(inputArray):
     count0 = 0
     count1 = 0
