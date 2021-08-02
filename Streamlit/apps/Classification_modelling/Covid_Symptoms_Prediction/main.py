@@ -4,11 +4,7 @@ import time
 
 import numpy as np
 import streamlit as st
-import torch
 import xgboost as xgb
-from apps.Classification_modelling.CT_Image_Detector.CT_detector import \
-    Detector
-from PIL import Image
 
 
 def predictCovid(inputArray):
