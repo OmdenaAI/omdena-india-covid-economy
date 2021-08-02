@@ -1,0 +1,3 @@
+[submodule "Streamlit/apps/Classification_modelling/CT_Image_Detector/yolov5"]
+	path = Streamlit/apps/Classification_modelling/CT_Image_Detector/yolov5
+	url = https://github.com/ultralytics/yolov5.git
