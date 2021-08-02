@@ -3,6 +3,7 @@ from multiapp import MultiApp
 from apps import homepage
 from apps.Classification_modelling.CT_Image_Detector.main import detect
 from apps.Sentiment_Analysis.sentimentinference import detect1
+from apps.Classification_modelling.Covid_Symptoms_Prediction.main import detect2
 
 def main():
 
@@ -11,6 +12,7 @@ def main():
     app.add_app("Homepage",homepage.app)
     app.add_app("CT Scan Detector",detect)
     app.add_app("Sentiment analysis",detect1)
+    app.add_app("Covid symptoms",detect2)
     app.run()
 
 if __name__ == "__main__":
