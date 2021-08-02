@@ -12,15 +12,21 @@ import pickle
 import re
 import shutil
 import string
+import datetime
 import time
 from string import punctuation
 
 import nltk
 import numpy as np
+import pandas as pd
+import csv
 import streamlit as st
 import torch
+import torch.nn as nn
 from emoji import demojize
 from lxml import html
+from collections import Counter
+import plotly.graph_objects as go
 
 nltk.download('stopwords')
 from nltk.corpus import stopwords
@@ -29,7 +35,7 @@ from apps.Sentiment_Analysis.download import load
 
 stop = set(stopwords.words('english'))
 
-"""### Loading Trained weights and vocabulary"""
+
 load()
 datapath = 'apps/Sentiment_Analysis/models/'
 fmodel = datapath + 'LSTM_RNN_Sentiment_model.pt'
@@ -45,14 +51,8 @@ def load_vocab(fpath):
 
 vocab_to_int = load_vocab(fvocab)
 
-vocab_to_int
-
-"""### Sentiment Model"""
 
 ### SENTIMENT MODEL 
-import torch.nn as nn
-
-
 class SentimentRNN(nn.Module):
     """
     The RNN model that will be used to perform Sentiment analysis.
@@ -121,7 +121,6 @@ class SentimentRNN(nn.Module):
         
         return hidden
 
-"""### Functions to pre-process input text"""
 
 def clean_text(text):
     # Convert Emoji to strings
@@ -170,7 +169,7 @@ def tokenize_text(text):
 
     # tokens
     test_ints = []
-    test_ints.append([vocab_to_int[word] for word in test_words])
+    test_ints.append([vocab_to_int[word] for word in test_words if vocab_to_int.get(word)])
 
     return test_ints
 
@@ -184,11 +183,11 @@ def pad_features(test_ints, seq_length):
 
     # for each review, I grab that review and 
     for i, row in enumerate(test_ints):
+      if len(row) > 0:   # If word is not in vocabulary then there will no integer representation    
         features[i, -len(row):] = np.array(row)[:seq_length]
     
     return features
 
-"""### Instantiating Model"""
 
 # Instantiate the model w/ hyperparams
 vocab_size = len(vocab_to_int)+1 # +1 for the 0 padding + our word tokens
@@ -199,15 +198,10 @@ n_layers = 2
 
 net = SentimentRNN(vocab_size, output_size, embedding_dim, hidden_dim, n_layers)
 
-print(net)
-
-"""### Load pre-trained weights"""
 
 # Load Trained Model weights
 model = net.load_state_dict(torch.load(fmodel, map_location=torch.device('cpu')))
-print(model)
 
-"""### Call Function"""
 
 def predict(net, test_text, sequence_length=200):
     
@@ -235,39 +229,54 @@ def predict(net, test_text, sequence_length=200):
     
     # convert output probabilities to predicted class (0 or 1)
     pred = torch.round(output.squeeze()) 
-    
-    if(pred.item()==1):
-        response = "Positive review detected!"
-    else:
-        response = "Negative review detected."
-    
+    response = int(pred.item())
     pred_value = output.item()
 
-    return response, pred_value
+    return text, response, pred_value
 
-"""## Example Input and Output"""
-
-# input_text = "people happy"
-# seq_length=51 # good to use the length that was trained on
-# response, pred_value = predict(net, input_text, seq_length)
-# print(response)
-# print('Prediction value, pre-rounding: {:.6f}'.format(pred_value))
-
-# input_text = "covid was devastating"
-# seq_length=51 # good to use the length that was trained on
-# response, pred_value = predict(net, input_text, seq_length)
-# print(response)
-# print('Prediction value, pre-rounding: {:.6f}'.format(pred_value))
+def process_file(fdate):
+  data = pd.read_csv(fdate, delimiter = "\t", quoting=csv.QUOTE_NONE, header=None)
+  data.rename({0:'text'}, axis=1, inplace=True)
+  a = list(data['text'])
+  sentiment = []
+  for input_text in a:
+    if len(input_text.split(' ')) > 10:
+      text, response, pred_value = predict(net, input_text, 51)
+      sentiment.append(response)
+  return sentiment
 
 def detect1():
-    st.title('Sentiment Analysis')
+    st.title('Covid Sentiment Analysis')
     st.write("")
 
-    sentence = st.text_input('Input your sentence here:', value="Hi good people!") 
-    if sentence is not None:
-        st.spinner(text='In progress...')
-        pred, score = predict(net, sentence, 51)
-        if pred.startswith("N"):
-            st.write(pred, "With score: {}".format(round((1 - score), 2)*100))
-        else:
-            st.write(pred, "With score: {}".format(round(score, 2)*100))
+    date = st.date_input("Select a date", datetime.date.today(), min_value=datetime.date(2021, 7, 31))
+    month = {7:"July", 8:"August", 9:"September", 10:"October"}
+    data_path = f"apps/Sentiment_Analysis/{month[date.month]}_{date.day}_2021.txt"
+
+    result = process_file(data_path)
+    c = Counter(result)
+    total = c.get(1) + c.get(0)
+
+    x = ['Positive Sentiment', 'Negative Sentiment']
+    y = [int((c.get(1)/total)*100), int((c.get(0)/total)*100)]
+
+    bar_plots = [
+             go.Bar(x=x, y=y, name='Sentiment', marker=go.bar.Marker(color='#0343df'))
+             ]
+
+    layout = go.Layout(
+    title=go.layout.Title(text="Sentiment Analysis", x=0.5),
+    yaxis_title="Percent Count",
+    yaxis_ticksuffix = "%",
+    yaxis_range=[0,100],
+    xaxis_tickmode="array",
+    xaxis_tickvals=list(range(27)),
+    xaxis_ticktext=tuple(x),
+    font=dict(
+            family="Courier New, monospace",
+            size=24,
+            color="Black"
+        )
+    )
+    fig = go.Figure(data=bar_plots, layout=layout)
+    st.plotly_chart(fig)
