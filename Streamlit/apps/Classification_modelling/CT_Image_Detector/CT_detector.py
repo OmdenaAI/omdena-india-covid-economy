@@ -5,12 +5,15 @@ from apps.Classification_modelling.CT_Image_Detector.yolov5.detect import run
 
 class Detector:
     def __init__(self,
-                image="apps/Classification_modelling/CT_Image_Detector/images/049fce8128f9.jpg"):
+                image="apps/Classification_modelling/CT_Image_Detector/images/049fce8128f9.jpg",
+                conf_thres=0.3,
+                line_thickness=1):
         self.model_path="apps/Classification_modelling/CT_Image_Detector/model/best.pt"
         self.image_path=image
         self.img_size=256
-        self.conf_thres=0.3
+        self.conf_thres=conf_thres
         self.iou_thres=0.5
+        self.thickness=line_thickness
 
     def predict_(self):
         run(weights=self.model_path,
@@ -33,7 +36,7 @@ class Detector:
             project='apps/Classification_modelling/CT_Image_Detector/runs/prediction',  # save results to project/name
             name='exp',  # save results to project/name
             exist_ok=False,
-            line_thickness=1,  # bounding box thickness (pixels)
+            line_thickness=self.thickness,  # bounding box thickness (pixels)
             hide_labels=False,
             hide_conf=False,
             half=False,  # use FP16 half-precision inference)

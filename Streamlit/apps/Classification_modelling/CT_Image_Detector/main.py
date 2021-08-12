@@ -9,10 +9,9 @@ import streamlit as st
 from apps.Classification_modelling.CT_Image_Detector.CT_detector import Detector
 
 
-def predict(image_path):
-    dect = Detector(image_path)
+def predict(image_path, conf, thick):
+    dect = Detector(image_path, conf, thick)
     preds = dect.predict_()
-    time.sleep(5)
     if os.path.exists(preds['label']):
         with open(preds['label'], 'r') as f:
             pred = f.read()
@@ -26,7 +25,10 @@ def predict(image_path):
 def detect():
     st.title('CT Scan Detector')
     st.write("")
-
+    st.markdown("A Robust CT scan detector to identify infected region in Covid19 patient's CT scans")
+    st.markdown('This feature provides accurate results in seconds.')
+    conf = st.sidebar.slider("Confidence Threshold:", 0.1, 0.9, 0.3, step=0.1)
+    thick = st.sidebar.slider("Boundingbox Thickness:", 1, 5, 1)
     file_up = st.file_uploader("Upload an image", type = "jpg")
     if file_up is not None:
         with open("apps/Classification_modelling/CT_Image_Detector/images/image.jpg", "wb") as f:
@@ -39,7 +41,7 @@ def detect():
             st.image(image, caption = 'Uploaded Image.', use_column_width = True)
         st.write("")
         st.write("Just a second ... Predicting 🚀")
-        image, score, label = predict("apps/Classification_modelling/CT_Image_Detector/images/image.jpg")
+        image, score, label = predict("apps/Classification_modelling/CT_Image_Detector/images/image.jpg", conf, thick)
 
         image = Image.open(image)
         with c2:
