@@ -1,0 +1,96 @@
+Sl. No.,Country,Quantity,Date of Despatch,Quantity,Date of Despatch,Quantity,Date of Despatch,Total Supplies,Longitude,Latitude
+1,Bangladesh,33,(20)21-Jan-21(12)26-March-21(1)2-Apr-21,70,5025-Jan-212022-Feb-21,Unnamed: 6_level_1,Unnamed: 7_level_1,103,90.2,24.6
+2,Myanmar,17,(15 SII)22-Jan-21(2 BB)11-Feb-21,20,11-Feb-21,Unnamed: 6_level_2,Unnamed: 7_level_2,37,96.1,21.84
+3,Nepal,11,(10)21-Jan-21(1)28-Mar-21,10,20-Feb-21,3.48,05-Mar-21,24.48,83.6,28.21
+4,Bhutan,5.5,1.520-Jan-21421-Mar-21,Unnamed: 4_level_4,Unnamed: 5_level_4,Unnamed: 6_level_4,Unnamed: 7_level_4,5.5,90.3,27.53
+5,Maldives,2,120-Jan-21119-Feb-21,1,29-Mar-21,0.12,06-Mar-21,3.12,73.5,4.22
+6,Mauritius,1,22-Jan-21,3,(1 SII)19-Feb-21(2 BB)18-Mar-21,Unnamed: 6_level_6,Unnamed: 7_level_6,4,57.6,-20.25
+7,Seychelles,0.5,22-Jan-21,Unnamed: 4_level_7,Unnamed: 5_level_7,Unnamed: 6_level_7,Unnamed: 7_level_7,0.5,55.5,-4.68
+8,Sri Lanka,5,28-Jan-21,5,24-Feb-21,2.64,06-Mar-21,12.64,80.7,7.3
+9,Bahrain,1,28-Jan-21,Unnamed: 4_level_9,Unnamed: 5_level_9,Unnamed: 6_level_9,Unnamed: 7_level_9,1,50.6,26.03
+10,Brazil,Unnamed: 2_level_10,Unnamed: 3_level_10,40,2022-Jan-212022-Feb-21,Unnamed: 6_level_10,Unnamed: 7_level_10,40,-49,-11.69
+11,Morocco,Unnamed: 2_level_11,Unnamed: 3_level_11,70,2022-Jan-214011-Feb-211024-Feb-21,Unnamed: 6_level_11,Unnamed: 7_level_11,70,-7.4,31.13
+12,Oman,1,30-Jan-21,Unnamed: 4_level_12,Unnamed: 5_level_12,Unnamed: 6_level_12,Unnamed: 7_level_12,1,56.3,19.85
+13,Egypt,Unnamed: 2_level_13,Unnamed: 3_level_13,0.5,30-Jan-21,Unnamed: 6_level_13,Unnamed: 7_level_13,0.5,28.7,26.16
+14,Algeria,Unnamed: 2_level_14,Unnamed: 3_level_14,0.5,31-Jan-21,Unnamed: 6_level_14,Unnamed: 7_level_14,0.5,2.6,28.6
+15,South Africa,Unnamed: 2_level_15,Unnamed: 3_level_15,10,31-Jan-21,Unnamed: 6_level_15,Unnamed: 7_level_15,10,23.4,-31.7
+16,Kuwait,Unnamed: 2_level_16,Unnamed: 3_level_16,2,31-Jan-21,Unnamed: 6_level_16,Unnamed: 7_level_16,2,47.4,29.32
+17,UAE,Unnamed: 2_level_17,Unnamed: 3_level_17,2,02-Feb-21,Unnamed: 6_level_17,Unnamed: 7_level_17,2,53.9,23.93
+18,Afghanistan,5,07-Feb-21,Unnamed: 4_level_18,Unnamed: 5_level_18,4.68,06-Mar-21,9.68,65.5,34.02
+19,Barbados,1,07-Feb-21,Unnamed: 4_level_19,Unnamed: 5_level_19,Unnamed: 6_level_19,Unnamed: 7_level_19,1,-59.6,13.19
+20,Dominica,0.7,07-Feb-21,Unnamed: 4_level_20,Unnamed: 5_level_20,Unnamed: 6_level_20,Unnamed: 7_level_20,0.7,-61.3,15.42
+21,Mexico,Unnamed: 2_level_21,Unnamed: 3_level_21,8.7,12-Feb-21,Unnamed: 6_level_21,Unnamed: 7_level_21,8.7,-101.7,22.93
+22,Dominican Republic,0.3,18-Feb-21,0.2,14-Feb-21,Unnamed: 6_level_22,Unnamed: 7_level_22,0.5,-70.2,19.01
+23,Saudi Arabia,Unnamed: 2_level_23,Unnamed: 3_level_23,45,3014-Feb-211528-Mar-21,Unnamed: 6_level_23,Unnamed: 7_level_23,45,44.3,24.19
+24,El Salvador,Unnamed: 2_level_24,Unnamed: 3_level_24,0.2,15-Feb-21,Unnamed: 6_level_24,Unnamed: 7_level_24,0.2,-89.2,13.85
+25,Argentina,Unnamed: 2_level_25,Unnamed: 3_level_25,5.8,16-Feb-21,Unnamed: 6_level_25,Unnamed: 7_level_25,5.8,-64.3,-33.17
+26,Serbia,Unnamed: 2_level_26,Unnamed: 3_level_26,1.5,20-Feb-21,Unnamed: 6_level_26,Unnamed: 7_level_26,1.5,20.7,44.02
+27,UN Health workers,Unnamed: 2_level_27,Unnamed: 3_level_27,1,21-Feb-21,Unnamed: 6_level_27,Unnamed: 7_level_27,1,0,0
+28,Mongolia,1.5,21-Feb-21,Unnamed: 4_level_28,Unnamed: 5_level_28,Unnamed: 6_level_28,Unnamed: 7_level_28,1.5,102.6,46.52
+29,Ukraine,Unnamed: 2_level_29,Unnamed: 3_level_29,5,22-Feb-21,Unnamed: 6_level_29,Unnamed: 7_level_29,5,32.1,49.36
+30,Ghana,0.5,04-Mar-21,0.02,10-Mar-21,6,23-Feb-21,6.52,-1.1,7.26
+31,Ivory Coast,0.5,04-Mar-21,Unnamed: 4_level_31,Unnamed: 5_level_31,5.04,25-Feb-21,5.54,-5.3,7.5
+32,St. Lucia,0.25,27-Feb-21,Unnamed: 4_level_32,Unnamed: 5_level_32,Unnamed: 6_level_32,Unnamed: 7_level_32,0.25,-61,13.91
+33,St. Kitts & Nevis,0.2,27-Feb-21,Unnamed: 4_level_33,Unnamed: 5_level_33,Unnamed: 6_level_33,Unnamed: 7_level_33,0.2,-62.6,17.15
+34,St. Vincent & Grenadines,0.4,27-Feb-21,Unnamed: 4_level_34,Unnamed: 5_level_34,Unnamed: 6_level_34,Unnamed: 7_level_34,0.4,-61.2,13.25
+35,Suriname,0.5,27-Feb-21,Unnamed: 4_level_35,Unnamed: 5_level_35,Unnamed: 6_level_35,Unnamed: 7_level_35,0.5,-55.8,4.25
+36,Antigua & Barbuda,0.4,27-Feb-21,Unnamed: 4_level_36,Unnamed: 5_level_36,Unnamed: 6_level_36,Unnamed: 7_level_36,0.4,-61.8,17.63
+37,DR Congo,0.5,04-Mar-21,Unnamed: 4_level_37,Unnamed: 5_level_37,17.16,01-Mar-21,17.66,23.6,-1.42
+38,Angola,Unnamed: 2_level_38,Unnamed: 3_level_38,Unnamed: 4_level_38,Unnamed: 5_level_38,6.24,01-Mar-21,6.24,17.8,-12.84
+39,Gambia,Unnamed: 2_level_39,Unnamed: 3_level_39,Unnamed: 4_level_39,Unnamed: 5_level_39,0.36,01-Mar-21,0.36,-14.6,13.5
+40,Nigeria,1,25-Mar-21,Unnamed: 4_level_40,Unnamed: 5_level_40,39.24,01-Mar-21,40.24,7.7,9.34
+41,Cambodia,Unnamed: 2_level_41,Unnamed: 3_level_41,Unnamed: 4_level_41,Unnamed: 5_level_41,3.24,02-Mar-21,3.24,104.4,12.69
+42,Kenya,1,10-Mar-21,Unnamed: 4_level_42,Unnamed: 5_level_42,10.2,02-Mar-21,11.2,38.2,0.81
+43,Lesotho,Unnamed: 2_level_43,Unnamed: 3_level_43,Unnamed: 4_level_43,Unnamed: 5_level_43,0.36,02-Mar-21,0.36,28.4,-29.45
+44,Rwanda,0.5,04-Mar-21,Unnamed: 4_level_44,Unnamed: 5_level_44,2.4,02-Mar-21,2.9,29.9,-1.89
+45,Sao Tome & Principe,Unnamed: 2_level_45,Unnamed: 3_level_45,Unnamed: 4_level_45,Unnamed: 5_level_45,0.24,02-Mar-21,0.24,6.6,0.22
+46,Senegal,0.25,04-Mar-21,Unnamed: 4_level_46,Unnamed: 5_level_46,3.24,02-Mar-21,3.49,-15.1,15.04
+47,Guatemala,2,02-Mar-21,Unnamed: 4_level_47,Unnamed: 5_level_47,Unnamed: 6_level_47,Unnamed: 7_level_47,2,-90.7,15.12
+48,Canada,Unnamed: 2_level_48,Unnamed: 3_level_48,5,02-Mar-21,Unnamed: 6_level_48,Unnamed: 7_level_48,5,-111.2,59.21
+49,Mali,Unnamed: 2_level_49,Unnamed: 3_level_49,Unnamed: 4_level_49,Unnamed: 5_level_49,3.96,03-Mar-21,3.96,-2.2,18.21
+50,Sudan,Unnamed: 2_level_50,Unnamed: 3_level_50,Unnamed: 4_level_50,Unnamed: 5_level_50,8.28,03-Mar-21,8.28,29.5,15.74
+51,Liberia,Unnamed: 2_level_51,Unnamed: 3_level_51,Unnamed: 4_level_51,Unnamed: 5_level_51,0.96,04-Mar-21,0.96,-9.3,6.51
+52,Malawi,0.5,12-Mar-21,Unnamed: 4_level_52,Unnamed: 5_level_52,3.6,04-Mar-21,4.1,33.7,-13.27
+53,Uganda,1,07-Mar-21,Unnamed: 4_level_53,Unnamed: 5_level_53,8.64,04-Mar-21,9.64,32.7,1.94
+54,Nicaragua,2,05-Mar-21,Unnamed: 4_level_54,Unnamed: 5_level_54,1.35,14-Mar-21,3.35,-85,12.69
+55,Guyana,0.8,05-Mar-21,Unnamed: 4_level_55,Unnamed: 5_level_55,Unnamed: 6_level_55,Unnamed: 7_level_55,0.8,-58.9,5.17
+56,Jamaica,0.5,05-Mar-21,Unnamed: 4_level_56,Unnamed: 5_level_56,Unnamed: 6_level_56,Unnamed: 7_level_56,0.5,-77.5,18.16
+57,UK,Unnamed: 2_level_57,Unnamed: 3_level_57,50,05-Mar-21,Unnamed: 6_level_57,Unnamed: 7_level_57,50,-1.3,52.29
+58,Togo,Unnamed: 2_level_58,Unnamed: 3_level_58,Unnamed: 4_level_58,Unnamed: 5_level_58,1.56,05-Mar-21,1.56,1.1,7.7
+59,Djibouti,Unnamed: 2_level_59,Unnamed: 3_level_59,Unnamed: 4_level_59,Unnamed: 5_level_59,0.24,05-Mar-21,0.24,42.2,11.41
+60,Somalia,Unnamed: 2_level_60,Unnamed: 3_level_60,Unnamed: 4_level_60,Unnamed: 5_level_60,3,05-Mar-21,3,43.4,2.88
+61,Seirra Leone,Unnamed: 2_level_61,Unnamed: 3_level_61,Unnamed: 4_level_61,Unnamed: 5_level_61,0.96,06-Mar-21,0.96,0,0
+62,Belize,0.25,07-Mar-21,Unnamed: 4_level_62,Unnamed: 5_level_62,Unnamed: 6_level_62,Unnamed: 7_level_62,0.25,-88.7,17.11
+63,Botswana,0.3,07-Mar-21,Unnamed: 4_level_63,Unnamed: 5_level_63,Unnamed: 6_level_63,Unnamed: 7_level_63,0.3,23.7,-22.13
+64,Mozambique,1,07-Mar-21,Unnamed: 4_level_64,Unnamed: 5_level_64,3.84,07-Mar-21,4.84,38,-13.85
+65,Ethiopia,Unnamed: 2_level_65,Unnamed: 3_level_65,Unnamed: 4_level_65,Unnamed: 5_level_65,21.84,07-Mar-21,21.84,38.8,8.44
+66,Tajikistan,Unnamed: 2_level_66,Unnamed: 3_level_66,Unnamed: 4_level_66,Unnamed: 5_level_66,1.92,08-Mar-21,1.92,72.6,38.37
+67,Benin,Unnamed: 2_level_67,Unnamed: 3_level_67,Unnamed: 4_level_67,Unnamed: 5_level_67,1.44,08-Mar-21,1.44,2.3,10.48
+68,Eswatini,0.2,09-Mar-21,Unnamed: 4_level_68,Unnamed: 5_level_68,0.12,11-Mar-21,0.32,31.5,-26.52
+69,Bahamas,0.2,10-Mar-21,Unnamed: 4_level_69,Unnamed: 5_level_69,Unnamed: 6_level_69,Unnamed: 7_level_69,0.2,-78,24.7
+70,Cape Verde,Unnamed: 2_level_70,Unnamed: 3_level_70,Unnamed: 4_level_70,Unnamed: 5_level_70,0.24,09-Mar-21,0.24,-23.4,15.42
+71,Iran,Unnamed: 2_level_71,Unnamed: 3_level_71,1.25,(BB)10-Mar-21,Unnamed: 6_level_71,Unnamed: 7_level_71,1.25,54,33.41
+72,Uzbekistan,Unnamed: 2_level_72,Unnamed: 3_level_72,Unnamed: 4_level_72,Unnamed: 5_level_72,6.6,15-Mar-21,6.6,64,41.76
+73,Solomon Islands,Unnamed: 2_level_73,Unnamed: 3_level_73,Unnamed: 4_level_73,Unnamed: 5_level_73,0.24,17-Mar-21,0.24,160.1,-9.6
+74,Laos,Unnamed: 2_level_74,Unnamed: 3_level_74,Unnamed: 4_level_74,Unnamed: 5_level_74,1.32,17-Mar-21,1.32,102.5,19.6
+75,Namibia,0.3,18-Mar-21,Unnamed: 4_level_75,Unnamed: 5_level_75,Unnamed: 6_level_75,Unnamed: 7_level_75,0.3,17.2,-21.28
+76,Bolivia,Unnamed: 2_level_76,Unnamed: 3_level_76,Unnamed: 4_level_76,Unnamed: 5_level_76,2.28,18-Mar-21,2.28,-65.2,-16.71
+77,South Sudan,Unnamed: 2_level_77,Unnamed: 3_level_77,Unnamed: 4_level_77,Unnamed: 5_level_77,1.32,22-Mar-21,1.32,30.5,7.1
+78,Paraguay,2,(1 BB)26-Mar-21(1 BB)22-Apr-21,Unnamed: 4_level_78,Unnamed: 5_level_78,Unnamed: 6_level_78,Unnamed: 7_level_78,2,-58.4,-23.27
+79,Fiji,1,26-Mar-21,Unnamed: 4_level_79,Unnamed: 5_level_79,Unnamed: 6_level_79,Unnamed: 7_level_79,1,178,-17.79
+80,UN Peacekeepers,2,27-Mar-21,Unnamed: 4_level_80,Unnamed: 5_level_80,Unnamed: 6_level_80,Unnamed: 7_level_80,2,0,0
+81,Zimbabwe,0.35,(0.35 BB ) 28-Mar-21,Unnamed: 4_level_81,Unnamed: 5_level_81,Unnamed: 6_level_81,Unnamed: 7_level_81,0.35,30,-19.1
+82,Niger,0.25,28-Mar-21,Unnamed: 4_level_82,Unnamed: 5_level_82,3.55,12-Apr-21,3.8,9.9,17
+83,Palestine,Unnamed: 2_level_83,Unnamed: 3_level_83,0.25,29-Mar-21,Unnamed: 6_level_83,Unnamed: 7_level_83,0.25,3.53,32.1
+84,Yemen,Unnamed: 2_level_84,Unnamed: 3_level_84,Unnamed: 4_level_84,Unnamed: 5_level_84,3.6,29-Mar-21,3.6,47.8,15.57
+85,Nauru,0.1,06-Apr-21,Unnamed: 4_level_85,Unnamed: 5_level_85,Unnamed: 6_level_85,Unnamed: 7_level_85,0.1,166.9,-0.53
+86,Trinidad & Tobago,0.4,09-Apr-21,Unnamed: 4_level_86,Unnamed: 5_level_86,Unnamed: 6_level_86,Unnamed: 7_level_86,0.4,-61.3,10.44
+87,Guinea,Unnamed: 2_level_87,Unnamed: 3_level_87,Unnamed: 4_level_87,Unnamed: 5_level_87,1.944,10-Apr-21,1.944,-10.9,10.6
+88,Papua New Guinea,Unnamed: 2_level_88,Unnamed: 3_level_88,Unnamed: 4_level_88,Unnamed: 5_level_88,1.32,10-Apr-21,1.32,142.8,-5.64
+89,Guinea Bissau,Unnamed: 2_level_89,Unnamed: 3_level_89,Unnamed: 4_level_89,Unnamed: 5_level_89,0.288,10-Apr-21,0.288,-14.5,12.19
+90,Zambia,Unnamed: 2_level_90,Unnamed: 3_level_90,Unnamed: 4_level_90,Unnamed: 5_level_90,2.28,11-Apr-21,2.28,25.3,-15.13
+91,Comoros,Unnamed: 2_level_91,Unnamed: 3_level_91,Unnamed: 4_level_91,Unnamed: 5_level_91,0.12,11-Apr-21,0.12,43.3,-11.65
+92,Cameroon,Unnamed: 2_level_92,Unnamed: 3_level_92,Unnamed: 4_level_92,Unnamed: 5_level_92,3.912,12-Apr-21,3.912,12.1,4.4
+93,Mauritania,Unnamed: 2_level_93,Unnamed: 3_level_93,Unnamed: 4_level_93,Unnamed: 5_level_93,0.696,12-Apr-21,0.696,-10.7,19.41
+94,Albania,0.5,16-Apr-21,Unnamed: 4_level_94,Unnamed: 5_level_94,Unnamed: 6_level_94,Unnamed: 7_level_94,0.5,20.1,40.65
+95,Syria,Unnamed: 2_level_95,Unnamed: 3_level_95,Unnamed: 4_level_95,Unnamed: 5_level_95,2.568,16-Apr-21,2.568,38.3,35.3
