@@ -21,11 +21,29 @@ auth = tweepy.OAuthHandler(settings.API_key, settings.API_Secret_Key)
 auth.set_access_token(settings.Access_token, settings.Access_Token_Secret)
 api = tweepy.API(auth)
 
+"""
+searchTerms = ["corona", "covid"]
+noOfSearch = 5000
+searchCountry = "India"
 
-# In[21]:
+places = api.geo_search(query=searchCountry, granularity="country")
+place_id = places[0].id
+print(place_id)
+tweets = tweepy.Cursor(api.search , q='{} place:{}'.format(searchTerms, place_id)).items(noOfSearch)
 
 
-class MYStreamListener(tweepy.StreamListener):
+for i,tweet in enumerate(tweets):
+    print(i, tweet.text)
+"""
+
+
+
+
+
+class MyStreamListener(tweepy.StreamListener):
+    def __init__(self,api=None):
+        super(MyStreamListener,self).__init__()
+        self.num_tweets=0 
     
     def on_status(self, status):
         if status.retweeted:
@@ -33,10 +51,13 @@ class MYStreamListener(tweepy.StreamListener):
         else: 
             location = status.user.location
             if location != None and "India" in location:
-                if status.created_at.strftime("%Y/%m/%d") == "2021/08/08": #figure month
-                    with open("./Tweet/August__2021.txt", "w") as text_file: #month
-                        text_file.write(status.text)
-                        print(status.text)
+                print(status.text)
+                self.num_tweets+=1
+                print(self.num_tweets)
+                if self.num_tweets<200:
+                    return True
+                else:
+                    return False
                     #log = open("/path/to/my/file.txt", "r")
                     #print str(log)
 
@@ -50,9 +71,10 @@ class MYStreamListener(tweepy.StreamListener):
 
 
 
-stream_listener = MYStreamListener()
+stream_listener = MyStreamListener()
 stream = tweepy.Stream(auth=api.auth, listener=stream_listener)
 stream.filter(track=settings.TRACK_TERMS)
+
 
 """
 USE TWINT WITH MAJOR CITY NAME IF TWEEPY DOESNT WORK

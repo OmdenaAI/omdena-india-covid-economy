@@ -26,7 +26,11 @@ import torch.nn as nn
 from emoji import demojize
 from lxml import html
 from collections import Counter
+import plotly.express as px
 import plotly.graph_objects as go
+
+from calendar import monthrange
+from datetime import datetime
 
 nltk.download('stopwords')
 from nltk.corpus import stopwords
@@ -34,6 +38,52 @@ from nltk.corpus import stopwords
 from apps.Sentiment_Analysis.download import load
 
 stop = set(stopwords.words('english'))
+
+
+
+import apps.Sentiment_Analysis.settings as settings
+import tweepy
+import datetime
+
+# In[20]:
+
+
+auth = tweepy.OAuthHandler(settings.API_key, settings.API_Secret_Key)
+auth.set_access_token(settings.Access_token, settings.Access_Token_Secret)
+api = tweepy.API(auth)
+
+
+
+class MyStreamListener(tweepy.StreamListener):
+    def __init__(self,api=None):
+        super(MyStreamListener,self).__init__()
+        self.num_tweets=0 
+    
+    def on_status(self, status):
+        if status.retweeted:
+            return
+        else: 
+            location = status.user.location
+            if location != None and "India" in location:
+                with open("Realtime.txt", "a+") as text_file: 
+                    with st.spinner(status.text):
+                        time.sleep(5)
+                    text_file.write(status.text)
+                self.num_tweets+=1
+                if self.num_tweets<10:
+                    return True
+                else:
+                    return False
+                    #log = open("/path/to/my/file.txt", "r")
+                    #print str(log)
+
+                
+            
+    
+    def on_error(self, status_code):
+        if status_code == 420:
+            #returning False in on_data disconnects the stream
+            return False
 
 
 load()
@@ -245,13 +295,80 @@ def process_file(fdate):
       sentiment.append(response)
   return sentiment
 
+#@st.cache(suppress_st_warning=True)
 def detect1():
     st.title('Covid Sentiment Analysis')
-    st.write("")
+    option= st.sidebar.selectbox('Select Historical/Realtime', ('Realtime Tweets', 'Historical line graph'))
+    TRACK_TERMS = ["corona", "covid", "COVID-19", "mask", "pandemic", "vaccine", "sanitizer"]
+    if option == 'Realtime Tweets':
+        terms= st.sidebar.multiselect('Select terms to track', TRACK_TERMS)
+        if st.button("Get Realtime Sentiment"):
+            stream_listener = MyStreamListener()
+            stream = tweepy.Stream(auth=api.auth, listener=stream_listener)
+            stream.filter(languages=["en"], track= terms)
+            data_path = "Realtime.txt"
+            result = process_file(data_path)
+            c = Counter(result)
+            if c.get(0) is None:
+                total = c.get(1) + 0
+                y = [int((c.get(1)/total)*100), 0]
 
-    date = st.date_input("Select a date", datetime.date.today(), min_value=datetime.date(2021, 7, 31))
+            elif c.get(1) is None:
+                total = c.get(0) + 0
+                y = [0, int((c.get(0)/total)*100)]
+
+            else:
+                total = c.get(1) + c.get(0)
+                y = [int((c.get(1)/total)*100), int((c.get(0)/total)*100)]
+            x = ['Positive', 'Negative']
+            
+            st.write(y)
+            bar_plots = [ go.Bar(x=x, y=y, name='Sentiment', marker=go.bar.Marker(color='#0343df'))]
+            layout = go.Layout(
+                title=go.layout.Title(text="Sentiment Analysis", x=0.5),
+                yaxis_title="Percent Count", yaxis_ticksuffix = "%", yaxis_range=[0,100],
+                xaxis_tickmode="array", xaxis_tickvals=list(range(27)), xaxis_ticktext=tuple(x), 
+                font=dict( family="Courier New, monospace", size=24, color="Black"))
+            fig = go.Figure(data=bar_plots, layout=layout)
+            st.plotly_chart(fig)
+            os.remove("Realtime.txt")
+        
+
+    else:
+        month_no = {"January":1, "February":2, "March":3, "April":4, "May":5, "June":6, "July":7, "August":8, "September":9 , "October":10, "November":11 , "December":12}
+        month = {v: k for k, v in month_no.items()}
+        y=[]
+        for i in range(1, 13):
+            try:
+                data_path = f"apps/Sentiment_Analysis/Tweet/{month[i]}2021.txt"
+                result = process_file(data_path)
+                print(i)
+                c = Counter(result)
+                total = c.get(1) + c.get(0)
+                y.append(int((c.get(0)/total)*100))
+            except:
+                break
+        x= list(range(1, i))
+        #fig = go.Figure(data=[go.Scatter(x=x, y=y), title="Variation of Negative Sentiment regarding Covid-19 with months", x= 'Month', y= '%Negative Sentiment'])
+        #df = pd.DataFrame(list(zip(x, y)), columns =['Month', '%Negative Sentiment'])
+        fig= go.Figure()
+        fig.add_trace(go.Scatter(x=x, y=y))
+        fig.update_layout( title="Negative Sentiment regarding Covid-19 vs Months",
+            xaxis_title="Month", yaxis_title="% Negative Sentiment", 
+            font=dict( family="Courier New, monospace", size=18, color="RebeccaPurple"))
+        #fig= px.scatter(df, x="Month", y="%Negative Sentiment", title="Variation of Negative Sentiment regarding Covid-19 with months")
+        st.plotly_chart(fig)
+
+
+
+
+
+
+
+    """
+    date = st.date_input("Select a date", datetime.date.today(), min_value=datetime.date(2021, 8, 1))
     month = {7:"July", 8:"August", 9:"September", 10:"October"}
-    data_path = f"apps/Sentiment_Analysis/{month[date.month]}_{date.day}_2021.txt"
+    data_path = f"apps/Sentiment_Analysis/Tweet/{month[date.month]}_{date.day}_2021.txt"
 
     result = process_file(data_path)
     c = Counter(result)
@@ -280,3 +397,4 @@ def detect1():
     )
     fig = go.Figure(data=bar_plots, layout=layout)
     st.plotly_chart(fig)
+    """
