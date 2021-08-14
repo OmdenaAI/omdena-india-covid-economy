@@ -64,21 +64,23 @@ def mainv():
     forecast2 = m2.predict(future2)
     forecast = m.predict(future)
 
-    confirmed_forecast_plot = m.plot(forecast)
-    confirmed_forecast1_plot = m1.plot(forecast1)
-    confirmed_forecast2_plot = m2.plot(forecast2)
-
     if choice == "Total Vaccinations":
         fig = plot_plotly(m, forecast)
+        fig.update_xaxes(title='Date')
+        fig.update_yaxes(title='Rate')
         st.write("Forecast on total_vaccinations from {}".format(str(split)))
         st.plotly_chart(fig, use_container_width=True)
 
     elif choice == "People Vaccinated":
         st.write("Forecast on people_vaccinated from {}".format(str(split)))
         fig1 = plot_plotly(m1, forecast1)
+        fig1.update_xaxes(title='Date')
+        fig1.update_yaxes(title='Rate')
         st.plotly_chart(fig1, use_container_width=True)
 
     elif choice == "Fully Vaccinated":
         st.write("Forecast on people_fully_vaccinated from {}".format(str(split)))
         fig2 = plot_plotly(m2, forecast2)
+        fig2.update_xaxes(title='Date')
+        fig2.update_yaxes(title='Rate')
         st.plotly_chart(fig2, use_container_width=True)

@@ -48,10 +48,7 @@ def mainu():
 
     mpl_fig = plt.figure()
     plt.plot(pd.concat([df[(df.index.get_level_values(0) <= split_f)][' Estimated Unemployment Rate (%)'],forecast1_df],axis=1))
-    '''plt.plot(forecast_df, color='darkgreen')
-    plt.fill_between(forecast_range, 
-                 lower, 
-                 upper, 
-                 color='k', alpha=.15)'''
+    plt.xlabel('Date')
+    plt.ylabel('Rate')
     st.write("Unemployment Rate Forecast from {}".format(str(split)))
-    st.plotly_chart(mpl_fig, use_container_width=True)
+    st.plotly_chart(mpl_fig)
