@@ -1,12 +1,10 @@
 import os
-import time
 import shutil
 
-from PIL import Image
-import torch
 import streamlit as st
-
-from apps.Classification_modelling.CT_Image_Detector.CT_detector import Detector
+from apps.Classification_modelling.CT_Image_Detector.CT_detector import \
+    Detector
+from PIL import Image
 
 
 def predict(image_path, conf, thick):

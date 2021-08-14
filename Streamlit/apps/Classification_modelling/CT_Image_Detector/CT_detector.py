@@ -1,6 +1,3 @@
-import torch
-import torch.nn as nn
-
 from apps.Classification_modelling.CT_Image_Detector.yolov5.detect import run
 
 class Detector:
