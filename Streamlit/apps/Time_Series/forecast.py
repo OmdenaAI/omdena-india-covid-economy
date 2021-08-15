@@ -9,7 +9,7 @@ from apps.Time_Series.sensex.new import new
 from apps.Time_Series.gdp.gdp import maing
 from apps.Time_Series.industrial_production.industrial_production import maini
 
-
+st.cache(suppress_st_warning=True)
 def detectf():
     # load()
     st.sidebar.header('Domain:')

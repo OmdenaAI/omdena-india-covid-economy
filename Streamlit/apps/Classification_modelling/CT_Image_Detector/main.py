@@ -20,6 +20,7 @@ def predict(image_path, conf, thick):
         label=0
     return preds['image'], score, label
 
+st.cache(suppress_st_warning=True)
 def detect():
     st.title('CT Scan Detector')
     st.write("")

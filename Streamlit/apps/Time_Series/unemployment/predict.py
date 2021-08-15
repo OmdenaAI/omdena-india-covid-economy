@@ -51,4 +51,4 @@ def mainu():
     plt.xlabel('Date')
     plt.ylabel('Rate')
     st.write("Unemployment Rate Forecast from {}".format(str(split)))
-    st.plotly_chart(mpl_fig)
+    st.plotly_chart(mpl_fig, use_container_width=True)

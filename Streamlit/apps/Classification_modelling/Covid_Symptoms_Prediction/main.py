@@ -23,6 +23,7 @@ def predictCovid(inputArray):
     else:
         return False, prob
 
+st.cache(suppress_st_warning=True)
 def detect2():
     st.title('Covid19 Symptoms Analysis')
     st.write("")
